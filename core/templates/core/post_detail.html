@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h2>{{ post.title }}</h2>
+  <p><em>Created on {{ post.created_at|date:"M d, Y" }}</em></p>
+  <p>{{ post.content }}</p>
+
+  <p>
+    <a href="{% url 'post_list' %}">Back to List</a> |
+    
+    {% if user.is_authenticated %}
+      <a href="{% url 'post_update' post.pk %}">Edit</a> |
+      
+      {% if user.is_staff %}
+        <a href="{% url 'post_delete' post.pk %}">Delete</a>
+      {% endif %}
+    {% endif %}
+    
+  </p>
+{% endblock %}
+

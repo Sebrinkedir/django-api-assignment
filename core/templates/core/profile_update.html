@@ -1,0 +1,12 @@
+<h2>Edit Profile</h2>
+
+<!-- Display the form to update bio and profile picture -->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Profile</button>
+</form>
+
+<!-- Link to return to the profile view page -->
+<a href="{% url 'profile' %}">Back to Profile</a>
+
