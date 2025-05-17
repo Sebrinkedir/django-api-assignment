@@ -74,3 +74,41 @@ footer {
 footer p {
     margin: 0;
 }
+.split-hero {
+    position: relative;
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.split-hero .half {
+    width: 50%;
+    height: 100%;
+}
+
+.brown-half {
+    background-color: #8B4513; /* brown */
+}
+
+.white-half {
+    background-color: #ffffff;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+}
