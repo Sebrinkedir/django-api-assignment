@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Post, Profile
 from .forms import PostForm, ProfileUpdateForm  # Import ProfileUpdateForm
+from rest_framework.viewsets import ModelViewSet  
+from .serializers import PostSerializer
+from rest_framework.permissions import IsAuthenticated
 
 # List View
 def post_list(request):
@@ -81,3 +84,8 @@ def profile_update(request):
     else:
         form = ProfileUpdateForm(instance=profile)
     return render(request, 'core/profile_update.html', {'form': form})
+# REST API ViewSet for Post model
+class PostViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
